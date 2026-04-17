@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二つ名ジェネレーター｜名前を入れるだけで異世界の称号が決まる【無料】</title>
+<meta name="description" content="名前を入力するだけで、あなただけの「二つ名」が生成されます。勇者・魔王・賢者など6タイプ・1000通り以上の称号＋能力値診断。結果をXでシェアしてみよう！">
+<link rel="canonical" href="https://YOUR-DOMAIN.com/">
+<meta property="og:title" content="二つ名ジェネレーター｜名前を入れるだけで異世界の称号が決まる">
+<meta property="og:description" content="名前を入れるだけで異世界の称号と能力値が決まる！あなたの二つ名は？1000通り以上の組み合わせ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://YOUR-DOMAIN.com/">
+<meta property="og:image" content="./ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="二つ名ジェネレーター｜あなたの異世界での称号は？">
+<meta name="twitter:description" content="名前を入れるだけで異世界の称号と能力値が決まる！結果をシェアしよう🔮">
+
+<!-- JSON-LD 構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "二つ名ジェネレーター",
+      "url": "https://YOUR-DOMAIN.com/",
+      "description": "名前を入力するだけで異世界の称号（二つ名）と能力値が決まる無料診断ツール",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "二つ名ジェネレーターとは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "名前を入力するだけで、あなただけの「二つ名（異世界での称号）」と5種類の能力値を生成する無料ツールです。38種の接頭語×29種の称号で1000通り以上の組み合わせがあります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "診断結果はSNSでシェアできる？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、Xシェアボタンから結果をツイートできます。また画像保存ボタンでシェア用の画像をPNGでダウンロードすることもできます。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ===== Google AdSense =====
+  承認後に下記 2 箇所の XXXXXXXXXXXXXXXX を自分の Publisher ID に書き換え、
+  コメントを外すだけで広告が表示されます。
+  ================================================ -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #f0c060;
+    --gold2: #ffd700;
+    --purple: #9b6dff;
+    --blue: #4fc3f7;
+    --dark: #06060f;
+    --dark2: #0d0d20;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.1);
+  }
+
+  body {
+    background: var(--dark);
+    color: #fff;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── 星空背景 ── */
+  #stars {
+    position: fixed; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse at 20% 50%, #1a0a2e 0%, #06060f 60%);
+    overflow: hidden;
+  }
+  #stars::before, #stars::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 50%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 70%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 15% 80%, rgba(255,220,100,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 85% 15%, rgba(180,140,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 40%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.5) 0%, transparent 100%);
+    background-size: 400px 400px;
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+  #stars::after {
+    background-size: 600px 600px;
+    animation-duration: 9s;
+    animation-direction: alternate-reverse;
+    opacity: 0.7;
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.6; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.02); }
+  }
+
+  /* ── レイアウト ── */
+  #app {
+    position: relative; z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  /* ── ヘッダー ── */
+  .site-header {
+    text-align: center;
+    padding: 40px 0 32px;
+  }
+  .site-header .crown { font-size: 40px; margin-bottom: 8px; }
+  .site-header h1 {
+    font-size: clamp(24px, 6vw, 36px);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, var(--gold), var(--purple), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.3;
+  }
+  .site-header p {
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── 広告エリア ── */
+  .ad-area {
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(255,255,255,0.1);
+    border-radius: 8px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.2);
+    font-size: 11px;
+    margin: 16px 0;
+  }
+
+  /* ── 入力フォーム ── */
+  #screen-input { animation: fadeIn 0.5s ease; }
+  #screen-result { display: none; animation: fadeIn 0.5s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .input-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 24px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+  }
+  .input-card .label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+  .input-wrap {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .input-wrap input {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    padding: 16px 20px;
+    outline: none;
+    letter-spacing: 0.15em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .input-wrap input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 20px rgba(155, 109, 255, 0.25);
+  }
+  .input-wrap input::placeholder { color: rgba(255,255,255,0.25); font-size: 16px; }
+
+  .btn-generate {
+    background: linear-gradient(135deg, #7c3aed, #9b6dff, #4fc3f7);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 16px 48px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+    box-shadow: 0 4px 24px rgba(155,109,255,0.4);
+  }
+  .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(155,109,255,0.5); }
+  .btn-generate:active { transform: translateY(0); }
+  .btn-generate:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .examples {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+  .examples span {
+    display: inline-block;
+    margin: 2px 4px;
+    padding: 3px 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .examples span:hover { background: rgba(155,109,255,0.2); color: rgba(255,255,255,0.8); }
+
+  /* ── ローディング ── */
+  #loading {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+  }
+  .loading-rune {
+    font-size: 48px;
+    animation: spin 1.5s linear infinite;
+    display: inline-block;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #loading p {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── 結果カード ── */
+  .result-card {
+    background: linear-gradient(135deg, rgba(155,109,255,0.08), rgba(79,195,247,0.05));
+    border: 1px solid rgba(155,109,255,0.3);
+    border-radius: 24px;
+    padding: 32px 24px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .result-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent 0%, rgba(155,109,255,0.03) 25%, transparent 50%);
+    animation: rotate 8s linear infinite;
+  }
+  @keyframes rotate { to { transform: rotate(360deg); } }
+
+  .result-type-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 4px 16px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .result-name-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.2em;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .result-input-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .futatsumei-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: rgba(240,192,96,0.7);
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .futatsumei-main {
+    font-size: clamp(28px, 8vw, 42px);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--gold), #fff, var(--gold2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    position: relative;
+    text-shadow: none;
+    filter: drop-shadow(0 0 20px rgba(240,192,96,0.3));
+  }
+  .futatsumei-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.2em;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  /* ── ステータス ── */
+  .stats-section {
+    background: rgba(0,0,0,0.2);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    position: relative;
+    text-align: left;
+  }
+  .stats-title {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .stat-row:last-child { margin-bottom: 0; }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.55);
+    width: 48px;
+    flex-shrink: 0;
+  }
+  .stat-bar-wrap {
+    flex: 1;
+    background: rgba(255,255,255,0.07);
+    border-radius: 100px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .stat-bar {
+    height: 100%;
+    border-radius: 100px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .stat-val {
+    font-size: 13px;
+    font-weight: 700;
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ── 説明文 ── */
+  .desc-section {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.7);
+    text-align: left;
+    position: relative;
+  }
+
+  /* ── ボタン群 ── */
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .btn-share {
+    flex: 1;
+    background: #1da1f2;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+    letter-spacing: 0.05em;
+  }
+  .btn-share:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-retry {
+    flex: 1;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: background 0.15s;
+    letter-spacing: 0.05em;
+  }
+  .btn-retry:hover { background: rgba(255,255,255,0.12); }
+  .btn-save-img {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(240,192,96,0.15), rgba(240,192,96,0.08));
+    border: 1px solid rgba(240,192,96,0.3);
+    border-radius: 50px;
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: transform 0.15s;
+    letter-spacing: 0.05em;
+  }
+  .btn-save-img:hover { transform: translateY(-2px); }
+
+  /* ── フッター ── */
+  footer {
+    text-align: center;
+    padding: 40px 16px 20px;
+    color: rgba(255,255,255,0.2);
+    font-size: 11px;
+    line-height: 1.8;
+    position: relative; z-index: 1;
+  }
+
+  /* ── Canvas（非表示） ── */
+  #share-canvas { display: none; }
+
+  /* ── レスポンシブ ── */
+  @media (max-width: 400px) {
+    .btn-row { flex-direction: column; }
+    .result-card { padding: 24px 16px; }
+    .stats-section { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="stars"></div>
+
+<div id="app">
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="crown">⚔️</div>
+    <h1>二つ名ジェネレーター</h1>
+    <p>名前を入力するだけで、あなたの異世界での称号が決まる</p>
+  </header>
+
+  <!-- 広告 (上) ※承認後コメントを外す -->
+  <div class="ad-area">
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script> -->
+    広告エリア
+  </div>
+
+  <!-- 入力画面 -->
+  <div id="screen-input">
+    <div class="input-card">
+      <p class="label">✦ あなたの名前を入力してください ✦</p>
+      <div class="input-wrap">
+        <input type="text" id="name-input" placeholder="例：山田太郎" maxlength="20" autocomplete="off">
+      </div>
+      <button class="btn-generate" onclick="generate()" id="gen-btn">🔮 二つ名を召喚する</button>
+      <div class="examples">
+        例：
+        <span onclick="fillExample('さくら')">さくら</span>
+        <span onclick="fillExample('たかし')">たかし</span>
+        <span onclick="fillExample('あいこ')">あいこ</span>
+        <span onclick="fillExample('りゅうじ')">りゅうじ</span>
+        <span onclick="fillExample('ゆい')">ゆい</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ローディング -->
+  <div id="loading">
+    <div class="loading-rune">🌀</div>
+    <p>運命の書を解読中…</p>
+  </div>
+
+  <!-- 結果画面 -->
+  <div id="screen-result">
+
+    <div class="result-card" id="result-card">
+      <div class="result-type-badge" id="r-type-badge">⚔️ 勇者系</div>
+      <div class="result-name-label">判定された名</div>
+      <div class="result-input-name" id="r-input-name">山田太郎</div>
+      <div class="futatsumei-label">✦ あなたの二つ名 ✦</div>
+      <div class="futatsumei-main" id="r-futatsumei">暗黒の魔王</div>
+      <div class="futatsumei-sub" id="r-epithet">〜 伝説の覇者 〜</div>
+
+      <div class="stats-section">
+        <div class="stats-title">▸ 能力値 ◂</div>
+        <div id="stats-list"></div>
+      </div>
+
+      <div class="desc-section" id="r-desc"></div>
+
+      <div class="btn-row">
+        <button class="btn-share" onclick="shareTwitter()">𝕏 でシェア</button>
+        <button class="btn-save-img" onclick="saveImage()">🖼 画像保存</button>
+        <button class="btn-retry" onclick="retry()">← もう一度</button>
+      </div>
+    </div>
+
+    <!-- 広告 (結果下) -->
+    <div class="ad-area" style="margin-top:20px">
+      広告エリア
+    </div>
+
+  </div>
+
+</div><!-- /app -->
+
+<canvas id="share-canvas" width="1200" height="630"></canvas>
+
+<footer>
+  &copy; 2026 二つ名ジェネレーター ／ 診断結果はエンタメ目的です<br>
+  <a href="./privacy.html" style="color:rgba(255,255,255,0.3)">プライバシーポリシー</a>
+</footer>
+
+<script>
+// ── データ ──────────────────────────────────────────
+
+const PREFIXES = [
+  '暗黒','閃光','蒼炎','紅蓮','銀翼','黄昏','白夜','深淵',
+  '星命','永劫','烈火','氷刃','雷鳴','虚空','天啓',
+  '彗星','朱雀','玄武','白虎','青龍','鋼鉄','霧夜',
+  '神速','冥界','覇道','輝煌','黎明','宵闇','刹那','業火',
+  '碧空','白銀','紫電','金剛','瑠璃','桜花','黒鉄','蒼穹'
+];
+
+const TITLES = [
+  '勇者','姫君','魔王','賢者','騎士','聖女','剣聖',
+  '大魔導士','覇王','神将','守護者','巫女','預言者',
+  '英雄','影の王','竜騎士','錬金術師','死霊術師',
+  '聖騎士','暗殺者','吟遊詩人','竜使い','魔剣士','封印師',
+  '神官','星読み','風使い','炎の申し子','闇の化身'
+];
+
+const EPITHETS = [
+  '伝説の覇者','最強の異端者','孤高の求道者','不滅の魂',
+  '覚醒せし者','封印された力','選ばれし運命','呪われた血脈',
+  '祝福を受けた者','世界を救う者','運命に愛された者',
+  '神に愛された戦士','闇に堕ちた光','光を纏う影',
+  '時を超えし存在','混沌の支配者','秩序の守護者','幻の剣士'
+];
+
+const TYPES = [
+  {
+    key: 'warrior', label: '⚔️ 戦士系',
+    color: ['#ff6b6b','#ff4444'],
+    desc: (name, futatsumei) =>
+      `${name}の魂には、生まれながらに戦いの炎が宿っています。「${futatsumei}」の名は伊達ではなく、どんな絶望的な状況でも諦めない不屈の精神が最大の武器。仲間を守るためなら我が身を顧みず、その背中は誰もが信頼を寄せる盾となる。`
+  },
+  {
+    key: 'mage', label: '🔮 魔法使い系',
+    color: ['#9b6dff','#6a3de8'],
+    desc: (name, futatsumei) =>
+      `${name}が持つ異能の力は計り知れない。「${futatsumei}」と呼ばれるようになった理由は、一度見た魔法は完全に習得し、さらに昇華させてしまう類まれな才能にある。感情が高ぶった時に発動する魔力は、世界の理すら書き換えると語り継がれている。`
+  },
+  {
+    key: 'rogue', label: '🗡 暗殺者系',
+    color: ['#4fc3f7','#0288d1'],
+    desc: (name, futatsumei) =>
+      `「${futatsumei}」── その名を耳にしただけで、国の重鎮ですら顔色を変えるという。${name}は影に生き、誰も気づかぬ場所で世界の均衡を保ち続ける。華やかな戦場より、たった一人で歴史を動かすことを好む孤高の存在だ。`
+  },
+  {
+    key: 'sage', label: '📖 賢者系',
+    color: ['#f0c060','#d4a017'],
+    desc: (name, futatsumei) =>
+      `${name}の瞳は、過去と未来を同時に見通すと言われている。「${futatsumei}」の称号は、万巻の書を読破し独自の真理に到達した者のみに与えられる最高の名誉。言葉の一つひとつに重みがあり、その助言で国が救われたことも一度ではない。`
+  },
+  {
+    key: 'hero', label: '✨ 聖者系',
+    color: ['#80ffb0','#00c853'],
+    desc: (name, futatsumei) =>
+      `生まれながらに神の加護を受けた${name}。「${futatsumei}」と呼ばれる存在は百年に一度しか現れないと予言書に記されている。その純粋な心が光の力を呼び込み、闇が深いほどに輝きを増す。傷ついた者の心を癒す力もまた、天から授かった使命だ。`
+  },
+  {
+    key: 'dragon', label: '🐉 龍系',
+    color: ['#ff9a3c','#e65c00'],
+    desc: (name, futatsumei) =>
+      `「${futatsumei}」── 古の龍との盟約によって力を得た${name}。その咆哮は山を砕き、怒りが頂点に達したとき、背には幻の翼が現れると目撃者は語る。龍の血が混じっているとも噂されるが、本人はただ静かに微笑むだけだ。`
+  },
+];
+
+const STAT_DEFS = [
+  { key:'atk', label:'攻撃力', colors:['#ff6b6b','#ff4444'] },
+  { key:'def', label:'防御力', colors:['#4fc3f7','#0288d1'] },
+  { key:'mag', label:'魔　力', colors:['#9b6dff','#6a3de8'] },
+  { key:'spd', label:'速　さ', colors:['#80ffb0','#00c853'] },
+  { key:'luk', label:'運　命', colors:['#f0c060','#d4a017'] },
+];
+
+// ── ハッシュ関数 ──────────────────────────────────────
+
+function hash(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return Math.abs(h >>> 0);
+}
+
+function pick(arr, seed, offset) {
+  return arr[(seed + offset * 7919) % arr.length];
+}
+
+// ── 生成ロジック ──────────────────────────────────────
+
+function calcResult(name) {
+  const h = hash(name);
+  const futatsumei = pick(PREFIXES, h, 0) + 'の' + pick(TITLES, h, 1);
+  const epithet    = pick(EPITHETS, h, 2);
+  const type       = TYPES[(h + 3 * 7919) % TYPES.length];
+
+  const stats = STAT_DEFS.map((s, i) => {
+    const raw = hash(name + s.key);
+    const val = (raw % 800) + 100; // 100〜899
+    return { ...s, val };
+  });
+
+  return { name, futatsumei, epithet, type, stats };
+}
+
+// ── UI ───────────────────────────────────────────────
+
+let currentResult = null;
+
+function fillExample(text) {
+  document.getElementById('name-input').value = text;
+}
+
+function generate() {
+  const name = document.getElementById('name-input').value.trim();
+  if (!name) {
+    document.getElementById('name-input').focus();
+    document.getElementById('name-input').style.borderColor = '#ff6b6b';
+    setTimeout(() => document.getElementById('name-input').style.borderColor = '', 1000);
+    return;
+  }
+
+  document.getElementById('screen-input').style.display = 'none';
+  document.getElementById('loading').style.display = 'block';
+  document.getElementById('gen-btn').disabled = true;
+
+  setTimeout(() => {
+    const result = calcResult(name);
+    currentResult = result;
+    renderResult(result);
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('screen-result').style.display = 'block';
+  }, 1800);
+}
+
+function renderResult(r) {
+  document.getElementById('r-input-name').textContent = r.name;
+  document.getElementById('r-futatsumei').textContent = r.futatsumei;
+  document.getElementById('r-epithet').textContent = '〜 ' + r.epithet + ' 〜';
+  document.getElementById('r-type-badge').textContent = r.type.label;
+  document.getElementById('r-type-badge').style.background =
+    `linear-gradient(90deg, ${r.type.color[0]}, ${r.type.color[1]})`;
+  document.getElementById('r-desc').textContent = r.type.desc(r.name, r.futatsumei);
+
+  const list = document.getElementById('stats-list');
+  list.innerHTML = r.stats.map(s => `
+    <div class="stat-row">
+      <div class="stat-label">${s.label}</div>
+      <div class="stat-bar-wrap">
+        <div class="stat-bar" id="bar-${s.key}"
+          style="background:linear-gradient(90deg,${s.colors[0]},${s.colors[1]})"></div>
+      </div>
+      <div class="stat-val">${s.val}</div>
+    </div>
+  `).join('');
+
+  // バーアニメーション
+  setTimeout(() => {
+    r.stats.forEach(s => {
+      const el = document.getElementById('bar-' + s.key);
+      if (el) el.style.width = (s.val / 999 * 100) + '%';
+    });
+  }, 100);
+}
+
+function retry() {
+  document.getElementById('screen-result').style.display = 'none';
+  document.getElementById('screen-input').style.display = 'block';
+  document.getElementById('gen-btn').disabled = false;
+  document.getElementById('name-input').value = '';
+  document.getElementById('name-input').focus();
+}
+
+// ── シェア ───────────────────────────────────────────
+
+function shareTwitter() {
+  if (!currentResult) return;
+  const r = currentResult;
+  const text = `【二つ名ジェネレーター】\n「${r.name}」の二つ名は…\n\n⚔️「${r.futatsumei}」⚔️\n〜${r.epithet}〜\n\n${r.type.label}\n\n#二つ名ジェネレーター #異世界転生`;
+  const url = location.href;
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+}
+
+// ── 画像生成・保存 ────────────────────────────────────
+
+function saveImage() {
+  if (!currentResult) return;
+  const r = currentResult;
+  const canvas = document.getElementById('share-canvas');
+  const ctx = canvas.getContext('2d');
+  const W = 1200, H = 630;
+
+  // 背景
+  const bg = ctx.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, '#0d0020');
+  bg.addColorStop(0.5, '#0a0a1e');
+  bg.addColorStop(1, '#050510');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  // 装飾グロー
+  const glow = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, 400);
+  glow.addColorStop(0, 'rgba(155,109,255,0.18)');
+  glow.addColorStop(1, 'transparent');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, W, H);
+
+  // 星
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
+  const starSeeds = [13,27,41,53,67,79,83,97,101,113,127,139,151,163,179];
+  starSeeds.forEach((s, i) => {
+    const sx = (s * 73 + i * 97) % W;
+    const sy = (s * 53 + i * 61) % H;
+    ctx.beginPath();
+    ctx.arc(sx, sy, Math.random() < 0.3 ? 2 : 1, 0, Math.PI*2);
+    ctx.fill();
+  });
+
+  // カード枠
+  ctx.strokeStyle = 'rgba(155,109,255,0.4)';
+  ctx.lineWidth = 2;
+  roundRect(ctx, 60, 60, W-120, H-120, 24);
+  ctx.stroke();
+
+  // タイプバッジ
+  ctx.fillStyle = r.type.color[0];
+  ctx.font = 'bold 22px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(r.type.label, W/2, 140);
+
+  // 入力名
+  ctx.fillStyle = 'rgba(255,255,255,0.55)';
+  ctx.font = '24px sans-serif';
+  ctx.fillText(r.name + ' の二つ名', W/2, 190);
+
+  // 二つ名（メイン）
+  const grad = ctx.createLinearGradient(W/2 - 300, 0, W/2 + 300, 0);
+  grad.addColorStop(0, '#f0c060');
+  grad.addColorStop(0.5, '#ffffff');
+  grad.addColorStop(1, '#ffd700');
+  ctx.fillStyle = grad;
+  ctx.font = 'bold 72px sans-serif';
+  ctx.shadowColor = 'rgba(240,192,96,0.5)';
+  ctx.shadowBlur = 30;
+  ctx.fillText(r.futatsumei, W/2, 290);
+  ctx.shadowBlur = 0;
+
+  // 副称号
+  ctx.fillStyle = 'rgba(255,255,255,0.45)';
+  ctx.font = '26px sans-serif';
+  ctx.fillText('〜 ' + r.epithet + ' 〜', W/2, 345);
+
+  // ステータスバー
+  const statY = 395;
+  const barW = 500;
+  const barX = (W - barW) / 2 - 60;
+  ctx.font = '18px sans-serif';
+  r.stats.forEach((s, i) => {
+    const y = statY + i * 32;
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.textAlign = 'left';
+    ctx.fillText(s.label, barX, y + 13);
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    roundRect(ctx, barX + 70, y, barW, 16, 8);
+    ctx.fill();
+    const bGrad = ctx.createLinearGradient(barX+70, 0, barX+70+barW, 0);
+    bGrad.addColorStop(0, s.colors[0]);
+    bGrad.addColorStop(1, s.colors[1]);
+    ctx.fillStyle = bGrad;
+    roundRect(ctx, barX + 70, y, barW * (s.val/999), 16, 8);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.textAlign = 'right';
+    ctx.fillText(s.val, barX + 70 + barW + 50, y + 13);
+  });
+
+  // サイト名
+  ctx.fillStyle = 'rgba(255,255,255,0.2)';
+  ctx.font = '18px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('二つ名ジェネレーター', W/2, H - 70);
+
+  // ダウンロード
+  const link = document.createElement('a');
+  link.download = `futatsumei_${r.name}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+// ── キーボード対応 ────────────────────────────────────
+document.getElementById('name-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') generate();
+});
+</script>
+</body>
+</html>
