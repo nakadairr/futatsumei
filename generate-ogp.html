@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>OGP生成</title></head>
+<body style="background:#111;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
+<canvas id="c" width="1200" height="630"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const W = 1200, H = 630;
+
+// 背景
+const bg = ctx.createLinearGradient(0, 0, W, H);
+bg.addColorStop(0, '#09091f');
+bg.addColorStop(0.5, '#12102e');
+bg.addColorStop(1, '#07071a');
+ctx.fillStyle = bg;
+ctx.fillRect(0, 0, W, H);
+
+// グロー（中央）
+const glow = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, 380);
+glow.addColorStop(0, 'rgba(120, 80, 255, 0.22)');
+glow.addColorStop(0.5, 'rgba(80, 40, 180, 0.10)');
+glow.addColorStop(1, 'transparent');
+ctx.fillStyle = glow;
+ctx.fillRect(0, 0, W, H);
+
+// グロー（左上）
+const glow2 = ctx.createRadialGradient(200, 150, 0, 200, 150, 260);
+glow2.addColorStop(0, 'rgba(240, 180, 60, 0.12)');
+glow2.addColorStop(1, 'transparent');
+ctx.fillStyle = glow2;
+ctx.fillRect(0, 0, W, H);
+
+// 星
+const stars = [
+  [80,60,1.5],[200,120,1],[350,40,2],[500,90,1],[650,30,1.5],[820,70,1],[950,50,2],[1100,100,1],
+  [1150,200,1.5],[1050,300,1],[900,400,2],[750,500,1],[600,560,1.5],[400,580,1],[250,520,2],[100,450,1],
+  [1000,150,1],[300,200,1.5],[700,250,1],[150,300,2],[1100,380,1],[50,380,1.5],[900,550,1],[450,150,2],
+  [600,400,1],[850,200,1.5],[130,500,1],[1050,500,2],[700,100,1],[300,450,1.5]
+];
+stars.forEach(([x, y, r]) => {
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(255,255,255,${0.4 + Math.random() * 0.5})`;
+  ctx.fill();
+});
+
+// 枠線
+ctx.strokeStyle = 'rgba(150, 100, 255, 0.35)';
+ctx.lineWidth = 2;
+ctx.strokeRect(36, 36, W - 72, H - 72);
+
+// 角の装飾
+const corner = (x, y, dx, dy) => {
+  ctx.beginPath();
+  ctx.moveTo(x + dx * 30, y);
+  ctx.lineTo(x, y);
+  ctx.lineTo(x, y + dy * 30);
+  ctx.strokeStyle = 'rgba(240,192,96,0.7)';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+};
+corner(36, 36, 1, 1);
+corner(W-36, 36, -1, 1);
+corner(36, H-36, 1, -1);
+corner(W-36, H-36, -1, -1);
+
+// 剣アイコン
+ctx.font = '110px serif';
+ctx.textAlign = 'center';
+ctx.fillText('⚔️', W/2, 200);
+
+// タイトル
+const titleGrad = ctx.createLinearGradient(W/2 - 350, 0, W/2 + 350, 0);
+titleGrad.addColorStop(0, '#f0c060');
+titleGrad.addColorStop(0.4, '#ffffff');
+titleGrad.addColorStop(0.7, '#e0b8ff');
+titleGrad.addColorStop(1, '#f0c060');
+ctx.fillStyle = titleGrad;
+ctx.font = 'bold 72px "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif';
+ctx.shadowColor = 'rgba(200,150,255,0.5)';
+ctx.shadowBlur = 24;
+ctx.fillText('二つ名ジェネレーター', W/2, 320);
+ctx.shadowBlur = 0;
+
+// サブタイトル
+ctx.fillStyle = 'rgba(255,255,255,0.5)';
+ctx.font = '28px "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif';
+ctx.fillText('名前を入れるだけで異世界の称号が決まる', W/2, 390);
+
+// 区切り線
+ctx.beginPath();
+ctx.moveTo(W/2 - 200, 420);
+ctx.lineTo(W/2 + 200, 420);
+ctx.strokeStyle = 'rgba(240,192,96,0.3)';
+ctx.lineWidth = 1;
+ctx.stroke();
+
+// URL
+ctx.fillStyle = 'rgba(200,160,255,0.55)';
+ctx.font = '22px "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif';
+ctx.fillText('futatsumei.vercel.app', W/2, 470);
+
+// タグ
+const tags = ['無料', '1000通り以上', 'SNSシェア対応'];
+tags.forEach((tag, i) => {
+  const tx = W/2 - 180 + i * 180;
+  ctx.fillStyle = 'rgba(120,80,255,0.3)';
+  roundRect(ctx, tx - 60, 500, 120, 34, 17);
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(150,100,255,0.5)';
+  ctx.lineWidth = 1;
+  roundRect(ctx, tx - 60, 500, 120, 34, 17);
+  ctx.stroke();
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
+  ctx.font = '16px sans-serif';
+  ctx.fillText(tag, tx, 522);
+});
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+w-r, y);
+  ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+  ctx.lineTo(x+w, y+h-r);
+  ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+  ctx.lineTo(x+r, y+h);
+  ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+  ctx.lineTo(x, y+r);
+  ctx.quadraticCurveTo(x, y, x+r, y);
+  ctx.closePath();
+}
+
+// 自動ダウンロード
+setTimeout(() => {
+  const a = document.createElement('a');
+  a.download = 'ogp.png';
+  a.href = canvas.toDataURL('image/png');
+  a.click();
+  document.body.innerHTML += '<p style="color:#9b6dff;text-align:center;font-family:sans-serif;margin-top:20px">✅ ogp.png をダウンロードしました！このファイルはプロジェクトフォルダに置いてpushしてください。</p>';
+}, 500);
+</script>
+</body>
+</html>
