@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ｜二つ名ジェネレーター</title>
+<meta name="robots" content="noindex">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3985655020038392" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R20FT8M66S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R20FT8M66S');</script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#06060f; color:#fff; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; min-height:100vh; }
+.wrap { max-width:600px; margin:0 auto; padding:48px 20px 80px; }
+.back { display:inline-block; color:rgba(255,255,255,0.4); font-size:13px; text-decoration:none; margin-bottom:32px; transition:color 0.15s; }
+.back:hover { color:#9b6dff; }
+h1 { font-size:24px; background:linear-gradient(135deg,#f0c060,#9b6dff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:8px; }
+.sub { font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:36px; line-height:1.8; }
+.form-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:32px 28px; }
+.form-group { margin-bottom:22px; }
+label { display:block; font-size:13px; color:rgba(255,255,255,0.55); margin-bottom:8px; letter-spacing:0.05em; }
+label span { color:#ff6b6b; margin-left:2px; }
+input, textarea, select {
+  width:100%; background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:10px; color:#fff; font-size:15px; padding:12px 16px;
+  font-family:inherit; outline:none; transition:border-color 0.2s;
+}
+input:focus, textarea:focus, select:focus { border-color:#9b6dff; }
+input::placeholder, textarea::placeholder { color:rgba(255,255,255,0.25); }
+textarea { min-height:140px; resize:vertical; }
+select option { background:#1a1a2e; }
+.btn-submit {
+  width:100%; padding:15px; background:linear-gradient(135deg,#7c3aed,#9b6dff);
+  border:none; border-radius:50px; color:#fff; font-size:16px; font-weight:700;
+  font-family:inherit; letter-spacing:0.1em; cursor:pointer;
+  box-shadow:0 4px 20px rgba(155,109,255,0.35); transition:transform 0.15s, opacity 0.15s;
+}
+.btn-submit:hover { transform:translateY(-2px); opacity:0.9; }
+.note { font-size:12px; color:rgba(255,255,255,0.3); margin-top:16px; text-align:center; line-height:1.8; }
+.thanks { display:none; text-align:center; padding:40px 0; }
+.thanks .icon { font-size:48px; margin-bottom:16px; }
+.thanks p { color:rgba(255,255,255,0.6); font-size:14px; line-height:1.9; }
+footer { text-align:center; padding:20px; color:rgba(255,255,255,0.2); font-size:11px; }
+footer a { color:rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="./index.html" class="back">← 二つ名ジェネレーターに戻る</a>
+  <h1>⚔️ お問い合わせ</h1>
+  <p class="sub">バグの報告・ご意見・ご要望などお気軽にどうぞ。<br>通常2〜3営業日以内にご返信いたします。</p>
+
+  <div class="form-card">
+    <div id="form-wrap">
+      <form id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
+        <div class="form-group">
+          <label>お名前 <span>*</span></label>
+          <input type="text" name="name" placeholder="山田 太郎" required>
+        </div>
+        <div class="form-group">
+          <label>メールアドレス <span>*</span></label>
+          <input type="email" name="email" placeholder="example@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>お問い合わせ種別</label>
+          <select name="type">
+            <option value="bug">バグ・不具合の報告</option>
+            <option value="request">機能のご要望</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>メッセージ <span>*</span></label>
+          <textarea name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">送信する</button>
+        <p class="note">個人情報は返信目的のみに使用し、第三者に提供しません。</p>
+      </form>
+    </div>
+    <div class="thanks" id="thanks">
+      <div class="icon">✨</div>
+      <p>お問い合わせありがとうございます。<br>内容を確認のうえ、折り返しご連絡いたします。</p>
+    </div>
+  </div>
+</div>
+<footer><a href="./privacy.html">プライバシーポリシー</a></footer>
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  try {
+    const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+    if (res.ok) {
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+    }
+  } catch(err) {
+    alert('送信に失敗しました。時間をおいて再度お試しください。');
+  }
+});
+</script>
+</body>
+</html>
